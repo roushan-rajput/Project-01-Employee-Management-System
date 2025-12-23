@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Login Page</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-container {
+            background: #fff;
+            width: 900px;
+            max-width: 95%;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            display: flex;
+            animation: scaleIn 0.8s ease;
+        }
+
+        /* Left Image Section */
+        .login-image {
+            flex: 1;
+            background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f') center/cover no-repeat;
+            position: relative;
+        }
+
+        .login-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(79, 70, 229, 0.7);
+        }
+
+        .login-image h2 {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            color: #fff;
+            font-weight: 600;
+            z-index: 1;
+        }
+
+        /* Right Form Section */
+        .login-form {
+            flex: 1;
+            padding: 60px 50px;
+            animation: slideInRight 1s ease;
+        }
+
+        .login-form h3 {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .login-form p {
+            color: #6b7280;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            border: 1px solid #d1d5db;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .extra {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+        }
+
+        .extra a {
+            text-decoration: none;
+            color: #6366f1;
+        }
+
+        /* Animations */
+        @keyframes slideInRight {
+            from {
+                transform: translateX(60px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .login-image {
+                display: none;
+            }
+
+            .login-form {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <!-- Image Section -->
+        <div class="login-image">
+            <h2>Welcome Back</h2>
+        </div>
+
+        <!-- Form Section -->
+        <div class="login-form">
+            <h3>Login</h3>
+            <p>Sign in to continue</p>
+
+            <form action="{% url 'login_data' %}" method="POST" id="loginForm">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="Email address" name="email" required>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="password" placeholder="Password" name="pass" required>
+                </div>
+                <button type="submit" class="btn-login">Login</button>
+            </form>
+
+            <div class="extra">
+                <a href="#">If You Don't have your Password.you Contact to the your HR!</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+"""
+URL configuration for project project.
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/6.0/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path
+from app import views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('',views.landing,name='landing'),
+    path('login/',views.login,name='login'),
+    path('login_data/',views.login_data,name='login_data'),
+    path('add_emp/',views.add_emp,name='add_emp'),
+    path('emp_data/',views.emp_data,name='emp_data'),
+    path('show_emp/',views.show_emp,name='show_emp'),
+    path('edit_employee/<int:pk>/',views.edit_employee,name='edit_employee'),
+    path('admin_data/',views.admin_logout,name='admin_logout'),
+    path('admin_data/',views.admin_logout,name='admin_logout'),
+    path('update_data/<str:pk>/',views.update_data,name='update_data'),
+    path('del_employee/<int:pk>/',views.del_employee,name='del_employee'),
+    
+
+    # path('add_emp/<int:pk>/',views.add_emp,name='add_emp'),
+]

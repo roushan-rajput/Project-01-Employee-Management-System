@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Company Landing Page</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    .navbar {
+      padding: 15px 0;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #4f46e5 !important;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      margin-left: 20px;
+      color: #333 !important;
+    }
+
+    .nav-link:hover {
+      color: #4f46e5 !important;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #4f46e5, #6366f1);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      animation: slideInLeft 1s ease forwards;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin: 20px 0;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    .hero .btn {
+      padding: 12px 30px;
+      font-weight: 500;
+      border-radius: 30px;
+      animation: slideInUp 1.8s ease forwards;
+    }
+
+    /* Floating shapes */
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .shape.one {
+      width: 120px;
+      height: 120px;
+      top: 20%;
+      left: 10%;
+    }
+
+    .shape.two {
+      width: 180px;
+      height: 180px;
+      bottom: 15%;
+      right: 10%;
+      animation-delay: 2s;
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-weight: 700;
+      color: #111827;
+    }
+
+    /* Services */
+    .service-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.4s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+
+    /* Footer */
+    footer {
+      background: #111827;
+      color: #9ca3af;
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    /* Animations */
+    @keyframes slideInLeft {
+      from { transform: translateX(-50px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideInUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Pvt Ltd.</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="shape one"></div>
+    <div class="shape two"></div>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h1>Building Digital Solutions for Your Business</h1>
+          <p>We help companies grow with modern design, scalable technology, and powerful digital strategies.</p>
+          <a href="#services" class="btn btn-light">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Services</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="service-card text-center">
+            <h5>Web Development</h5>
+            <p>Modern, responsive, and scalable web applications.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card text-center">
+            <h5>UI/UX Design</h5>
+            <p>Clean and user-focused designs for better experience.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card text-center">
+            <h5>Digital Marketing</h5>
+            <p>Grow your brand with data-driven marketing strategies.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="bg-light">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Us</h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <p>We are a professional team dedicated to delivering high-quality digital products that help businesses succeed in the modern world.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer id="contact">
+    <p>© 2025 Your Company. All rights reserved.</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Simple Scroll Animation -->
+  <script>
+    const cards = document.querySelectorAll('.service-card');
+
+    window.addEventListener('scroll', () => {
+      const trigger = window.innerHeight * 0.85;
+      cards.forEach(card => {
+        const top = card.getBoundingClientRect().top;
+        if (top < trigger) {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }
+      });
+    });
+
+    cards.forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(40px)';
+      card.style.transition = '0.6s ease';
+    });
+  </script>
+</body>
+</html>
