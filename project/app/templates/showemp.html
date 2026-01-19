@@ -115,27 +115,43 @@
         }
 
         .table-container {
-            padding: 20px;
+            padding: 00px;
+            gap: 00px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            background: #c4c3ffff;
+            background: rgb(195, 195, 237);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.46);
+            box-shadow: 0 4px 10px rgb(0, 0, 0);
         }
 
         thead {
             background-color: #000000ff;
-            color: #ffffff;
+            color: #ffffff; 
+            border-radius: 8px 8px 0 0;
+            font-size: 18px;
+            /* background: transparent; */
+            font-weight: bold;
+            width:100%;
+            text-align: center;
+            table-layout: fixed;
         }
 
-        th,
         td {
             padding: 12px 15px;
             text-align: center;
+        }
+
+        th {
+        padding: 15px;
+        text-align: center;
+        font-size: 15px;
+        font-weight: 600;
+        /* white-space: nowrap; */
+        
         }
 
         tbody tr:nth-child(even) {
@@ -159,17 +175,28 @@
             border-radius: 6px;
             cursor: pointer;
         }
+        .salary-btn {
+            background-color: #f86060ff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
 
         .edit-btn:hover {
             background-color: #16a34a;
+            
         }
 
         .delete-btn:hover {
             background-color: #dc2626;
         }
+        .salary-btn:hover {
+            background-color: #74dc0d;
+        }
 
-
-        /* Animations */
+        /* Animations
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -204,7 +231,7 @@
             .sidebar {
                 width: 200px;
             }
-        }
+        } */
     </style>
 </head>
 
@@ -215,7 +242,7 @@
         <a class="nav-link" href="{% url 'show_emp' %}">Show All Employees</a>
         <a class="nav-link" onclick="showSection('profile')">Your Profile</a>
         <a class="nav-link" onclick="showSection('activity')">Other Activities</a>
-        <a class="nav-link active" href="{% url 'admin_logout' %}">Logout!</a>
+        <a class="nav-link active" href="{% url 'logout' %}">Logout!</a>
     </div>
     <div class="main">
         <div class="topbar">
@@ -233,8 +260,13 @@
                         <th>Contact</th>
                         <th>Position</th>
                         <th>Salary</th>
+                        <th>Password</th>
+                        <th>Pay!!!</th>
                         <th>Edit</th>
                         <th>Delete</th>
+                        
+
+
                     </tr>
                 </thead>
 
@@ -243,11 +275,14 @@
                     <tr>
                         <td>{{ i.empid }}</td>
                         <td>{{ i.name }}</td>
-                        <td>{{ i.email }}</td>a
+                        <td>{{ i.email }}</td>
                         <td>{{ i.contact }}</td>
                         <td>{{ i.position }}</td>
                         <td>{{ i.salary }}</td>
+                        <td>{{ i.Password }}</td>
                         <td>
+                            <a href="" class="salary-btn">Pay</a>
+                        </td>
                         <td>
                             <a href="{% url 'edit_employee' pk=i.id %}" class="edit-btn">Edit</a>
                         </td>
@@ -259,7 +294,7 @@
                 </tbody>
             </table>
         </div>
-        <!-- Profile -->
+        <!-- Profile
         <div id="profile" class="card section">
             <h3>Your Profile</h3>
             <p><strong>Name:</strong> Admin User</p>
@@ -268,12 +303,12 @@
         </div>
 
         <!-- Activities -->
-        <div id="activity" class="card section">
+        <!-- <div id="activity" class="card section">
             <h3>Other Activities</h3>
             <p>✔ System Monitoring</p>
             <p>✔ Employee Management</p>
             <p>✔ Reports & Analytics</p>
-        </div>
+        </div> -->
     </div>
 </body>
 </html>

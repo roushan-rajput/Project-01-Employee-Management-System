@@ -178,7 +178,7 @@
         <a class="nav-link" href="{% url 'show_emp' %}">Show All Employees</a>
         <a class="nav-link" onclick="showSection('profile')">Your Profile</a>
         <a class="nav-link" onclick="showSection('activity')">Other Activities</a>
-        <a class="nav-link active" href="{% url 'admin_logout' %}">Logout!</a>
+        <a class="nav-link active" href="{% url 'logout' %}">Logout!</a>
     </div>
 
     <!-- Main -->
@@ -218,6 +218,11 @@
                     <div class="form-group">
                         <label>Contact:</label>
                         <input type="tel" placeholder="Enter a Contact" name="empcontact" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="Password" placeholder="Enter a Password" name="emppassword" required>
                     </div>
 
                     <div class="form-group">
@@ -265,6 +270,11 @@
                     </div>
 
                     <div class="form-group">
+                        <label>Password</label>
+                        <input type="Password" placeholder="Enter a Password" name="emppassword" required>
+                    </div>
+
+                    <div class="form-group">
                         <button type="submit" class="edit-btn">Update</button>
                     </div>
                 </form>
@@ -287,5 +297,4 @@
         <p>✔ Reports & Analytics</p>
     </div>
 </body>
-
 </html>

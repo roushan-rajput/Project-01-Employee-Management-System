@@ -133,9 +133,9 @@
     <h2>Admin Panel</h2>
     <a class="nav-link active" href="{% url 'add_emp' %}">Add New Employee</a>
     <a class="nav-link" href="{% url 'show_emp' %}">Show All Employees</a>
-    <a class="nav-link" onclick="showSection('profile')">Your Profile</a>
+    <a class="nav-link" >Your Profile</a>
     <a class="nav-link" onclick="showSection('activity')">Other Activities</a>
-    <a class="nav-link active" href="{% url 'admin_logout' %}">Logout!</a>
+    <a class="nav-link active" href="{% url 'logout' %}">Logout!</a>
   </div>
   <!-- Main -->
   <div class="main">
@@ -167,7 +167,7 @@
     </div>
   </div>
 
-  <script>
+  {% comment %} <script>
     const employees = [];
 
     function showSection(id) {
@@ -201,7 +201,7 @@
         table.innerHTML += row;
       });
     }
-  </script>
+  </script> {% endcomment %}
 
 </body>
 </html>

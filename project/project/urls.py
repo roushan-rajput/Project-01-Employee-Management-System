@@ -23,14 +23,24 @@ urlpatterns = [
     path('',views.landing,name='landing'),
     path('login/',views.login,name='login'),
     path('login_data/',views.login_data,name='login_data'),
+    path('forgetpass/',views.forgetpass,name='forgetpass'),
+    path('send_otp/',views.send_otp,name='send_otp'),
+    path('verify_otp',views.verify_otp,name='verify_otp'),    
+    path('Reset_data',views.Reset_data,name='Reset_data'),    
+    path('empdashboard',views.empdashboard,name='empdashboard'),
+    # path('profile',views.profile,name='profile'),
+
     path('add_emp/',views.add_emp,name='add_emp'),
     path('emp_data/',views.emp_data,name='emp_data'),
     path('show_emp/',views.show_emp,name='show_emp'),
     path('edit_employee/<int:pk>/',views.edit_employee,name='edit_employee'),
-    path('admin_data/',views.admin_logout,name='admin_logout'),
-    path('admin_data/',views.admin_logout,name='admin_logout'),
+    path('logout/',views.logout,name='logout'),
+    # path('logout/',views.logout,name='logout'),
     path('update_data/<str:pk>/',views.update_data,name='update_data'),
     path('del_employee/<int:pk>/',views.del_employee,name='del_employee'),
+
+    
+
     
 
     # path('add_emp/<int:pk>/',views.add_emp,name='add_emp'),

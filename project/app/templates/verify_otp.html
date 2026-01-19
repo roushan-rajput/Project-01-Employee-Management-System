@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forgot Password</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+        }
+
+        .forgot-container {
+            width: 380px;
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 14px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            text-align: center;
+        }
+
+        .forgot-container h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .forgot-container p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .forgot-container input {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s;
+        }
+
+        .forgot-container input:focus {
+            border-color: #4f46e5;
+            outline: none;
+        }
+
+        .forgot-container button {
+            width: 100%;
+            padding: 12px;
+            background: #4f46e5;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .forgot-container button:hover {
+            background: #4338ca;
+            transform: translateY(-2px);
+        }
+
+        .footer-text {
+            margin-top: 18px;
+            font-size: 13px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="forgot-container">
+        <h2>Let's Verify Your OTP</h2>
+        <p>Enter your OTP HERE!</p>
+
+        <form method="post" action="{% url 'verify_otp' %}">
+        {% csrf_token %}
+            <input type="text" name="otp" placeholder="Enter your OTP!" required>
+            <button type="submit">Verify OTP</button>
+        </form>
+
+        <div class="footer-text">
+            We'll send a one-time password to your email!
+        </div>
+    </div>
+</body>
+</html>
